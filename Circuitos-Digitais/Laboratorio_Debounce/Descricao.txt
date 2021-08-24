@@ -1,0 +1,9 @@
+Um circuito trabalha com um clock de 30 Hz e possui um botão com grande sensibilidade a ruído.
+
+Implemente um circuito que elimina o ruído da entrada por filtrar as subidas e descidas do botão, fazendo com que o sinal de entrada fique suave, ou seja, que ocorra exatamente um acionamento do botão para cada vez que ele é pressionado.
+
+Suponha que para que o ruido tenha duração máxima de 0.2 segundos tanto ao ser pressionado como ao ser liberado.
+
+Utilize apenas um clock de 30Hz. Não use outros clocks. Use apenas um botão de entrada e um led de saída.
+
+Dica: para implementar, utilize flip-flops tipo D.
