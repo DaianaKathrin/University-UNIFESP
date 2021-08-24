@@ -1,0 +1,14 @@
+Projeto 1
+
+O objetivo deste projeto é colocar em prática, de forma integrada, os modelos diagramáticos da SysML. Para isso deverá ser feita a modelagem do processador desenvolvido no Lab. de AOC.
+
+Os seguintes artefatos devem ser produzidos e submetidos no Classroom (em arquivo único):
+- Uma descrição textual do sistema (2 páginas).
+- Um diagrama de pacotes (organização da modelagem em pacotes, de acordo com os diagramas a serem produzidos).
+- Um ou mais diagramas de requisitos (cada requisito deve ter uma breve descrição textual).
+- Um ou mais diagramas de casos de uso.
+- Pelo menos três diagramas de atividades (cada diagrama de atividades deve estar vinculado a um caso de uso).
+
+O trabalho deve ser feito individualmente. Enviar um arquivo zipado via Classroom, contendo:
+- Um arquivo PDF com a descrição do sistema
+- Um arquivo .vpp (todos os diagramas produzidos)

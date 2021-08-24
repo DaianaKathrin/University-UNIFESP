@@ -1,0 +1,19 @@
+Projeto 2
+
+O objetivo deste projeto é fazer a modelagem completa de um sistema de livre escolha do aluno. Entretanto, o sistema, ou produto, deve ter tanto o aspecto de hardware como de software. Bons candidatos a modelagem são produtos eletrônicos, como eletrodomésticos, gadgets, dispositivos médicos, dispositivos de entretenimento, automação residencial ou predial, robôs etc.
+
+Os seguintes artefatos devem ser entregues:
+- Um documento de contexto sobre o produto ou sistema (2 a 3 páginas)
+- Diagrama de Pacotes
+- Diagrama de Requisitos (um ou mais)
+- Diagrama de Casos de Uso (um ou mais)
+
+- Diagramas de Atividades (pelo menos três, associados aos casos de uso)
+- Diagramas de Sequência (um ou mais, associados aos casos de uso)
+- Máquinas de Estados (pelo menos três)
+
+O trabalho pode ser feito em dupla. Enviar um arquivo zipado via Classroom, contendo:
+- Um arquivo PDF com a descrição de contexto e sistema
+- Um arquivo .vpp (todos os diagramas produzidos)
+
+ENTREGA: 01/12/2019 até 23:59
