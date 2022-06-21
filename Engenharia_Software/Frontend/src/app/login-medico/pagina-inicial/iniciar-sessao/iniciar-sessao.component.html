@@ -1,0 +1,14 @@
+<h2 class="header_text">INSIRA O LINK PARA INICIAR A SESSÃO</h2>
+
+<div class="text-center">
+    <div class="col-md-7">
+        <input type="text"
+         class="form-control"
+         id="link-sessao"  
+         placeholder="Insira o link"
+         [(ngModel)]="inputLink" 
+        >
+    </div>
+    <button type="submit" class="btn btn-lg" (click)="onSubmit(prox_consulta.Consulta_ID)">Enviar</button>
+</div>
+

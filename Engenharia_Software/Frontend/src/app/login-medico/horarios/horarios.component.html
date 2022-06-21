@@ -1,0 +1,118 @@
+<div class="wrapper">
+  <div class="template-background">
+    <app-background
+      [ehMedico]="true"
+      [nomeUsuario]="medico?.Nome"
+    ></app-background>
+  </div>
+  <div>
+    <app-sidemenu-medico [opcao]="1"></app-sidemenu-medico>
+  </div>
+  <div class="main-container">
+    <form
+      class="form form-horizontal form-group center needs-validation"
+      [formGroup]="form"
+    >
+    <div class="row">
+        <h3 class="header_text" style="text-align:center">CADASTRAR NOVA CARGA HORÁRIA</h3>
+        <div class="col-md-6 mb-5">
+            <label class="ml-2 texto-cor-branca" for="Data">Data</label>
+            <input class="form-control" id="date" type="date" formControlName="Data"
+                [ngClass]="{'is-invalid':submmited && hasError('Data')}">
+        </div>
+
+        <div class="col-md-6 mt-4">
+            <label for="Tempo_Consulta" class="form-label">Tempo de Consulta:</label>
+            <input type="number" formControlName='Tempo_Consulta' name="Tempo_Consulta" id="Tempo_Consulta"
+                min="20" max="120" step="5" placeholder="20"
+                [ngClass]="{'is-invalid':submmited && hasError('Data')}" /> minutos
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label" for="appt">Escolha o horário de inicio: </label>
+            <input
+                type="time"
+                id="Horario_Inicio"
+                name="Horario_Inicio"
+                min="00:00"
+                max="23:59"
+                required
+                formControlName="Horario_Inicio"
+                [ngClass]="{ 'is-invalid': submmited && hasError('Horario_Inicio') }"
+            />
+        </div>
+
+        <div class="col-md-6 mb-5">
+        <label class="form-label" for="appt">Escolha o horário Final: </label>
+        <input
+            type="time"
+            id="Horario_Fim"
+            name="Horario_Fim"
+            min="00:00"
+            max="23:59"
+            required
+            formControlName="Horario_Fim"
+            [ngClass]="{ 'is-invalid': submmited && hasError('Horario_Fim') }"
+        />
+        </div>
+    </div>
+
+      <div class="text-center">
+        <button
+          type="submit"
+          class="btn cadastrar-button btn-lg ml-20"
+          (click)="cadastraHorarios()"
+        >
+          Cadastrar
+        </button>
+      </div>
+    </form>
+
+    <mat-card *ngIf="horariosMedico.length === 0" class="card-model">
+        <mat-card-title class="card-header-model">
+          NÃO HÁ HORÁRIOS CADASTRADOS
+        </mat-card-title>
+    </mat-card>
+
+    <div class="mt-4 mb-4" *ngIf="horariosMedico.length > 0">
+        <h2 class="header_text">HORÁRIOS CADASTRADOS</h2>
+        <div class="table-container">
+          <table mat-table [dataSource]="horariosMedico" class="table-model">
+            <ng-container matColumnDef="data">
+              <th mat-header-cell *matHeaderCellDef>DATA</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.Data | date: "dd/MM/YYYY" }}
+              </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="horarioInicio">
+              <th mat-header-cell *matHeaderCellDef>HORÁRIO INÍCIO</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.Horario_Inicio.substring(0, 5) }}
+              </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="horarioFim">
+              <th mat-header-cell *matHeaderCellDef>HORÁRIO FIM</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.Horario_Fim.substring(0, 5) }}
+              </td>
+            </ng-container>
+    
+    
+            <ng-container matColumnDef="delete">
+              <th mat-header-cell *matHeaderCellDef>EXCLUIR</th>
+              <td mat-cell *matCellDef="let element">
+                <button mat-icon-button color="warn" (click)="deletaHorario(element.Horario_ID)">
+                  <mat-icon>delete_outline</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<div class="background-container">
+  <div class="mt-4 mb-4 form-container">
+    <div class="header-container">
+      <div class="title-container mt-5">
+        <span class="title-1">Crie seu cadastro</span>
+        <span class="title-2">É rápido e fácil</span>
+      </div>
+      <img src="assets/img/logo.png" alt="Imagem da logo" class="logo-img" [routerLink]="['/home']" />
+    </div>
+
+    <div class="main-container">
+      <form class="form form-horizontal form-group center needs-validation" [formGroup]="form">
+        <div class="col-md-11 mb-4">
+          <div class="row">
+            <div class="col-lg-8">
+              <input class="form-control" placeholder="Nome" formControlName="Nome"
+                [ngClass]="{'is-invalid':submmited && hasError('Nome')}" name="usuario" />
+            </div>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" id="CPF" formControlName="CPF"
+                [ngClass]="{'is-invalid':submmited && hasError('CPF')}" placeholder="CPF">
+              <div class="invalid-feedback" *ngIf="hasError('CPF')">
+                Informe um CPF válido.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-11 mb-4">
+          <label class="ml-2 texto-cor-branca" for="dataNascimento">Data de Nascimento</label>
+          <input class="form-control" id="date" type="date" formControlName="Data_Nascimento"
+            [ngClass]="{'is-invalid':submmited && hasError('Data_Nascimento')}">
+        </div>
+
+        <div class="col-md-11 mb-4">
+          <input type="text" class="form-control" id="celular" formControlName="Celular"
+            [ngClass]="{'is-invalid':submmited && hasError('Celular')}" placeholder="Celular">
+        </div>
+
+        <div class="col-md-11 mb-4">
+          <input type="email" class="form-control" id="email" formControlName="Email"
+            [ngClass]="{'is-invalid':submmited && hasError('Email')}" placeholder="Email">
+        </div>
+
+        <div class="grid-col-3">
+          <div class="mb-4">
+            <input class="form-control" placeholder="CEP" formControlName="CEP"
+              [ngClass]="{'is-invalid':submmited && hasError('CEP')}" name="cep" />
+          </div>
+
+          <div class="mb-4 ml-20">
+            <input class="form-control" placeholder="Logradouro" formControlName="Logradouro"
+              [ngClass]="{'is-invalid':submmited && hasError('Logradouro')}" name="logradouro" />
+          </div>
+
+          <div class="mb-4 ml-20">
+            <input class="form-control" placeholder="Número" formControlName="Logradouro_Numero"
+              [ngClass]="{'is-invalid':submmited && hasError('Logradouro_Numero')}" name="numero" />
+          </div>
+        </div>
+
+        <div class="grid-col-2">
+          <div class="mb-4">
+            <input class="form-control" placeholder="Cidade" formControlName="Cidade"
+              [ngClass]="{'is-invalid':submmited && hasError('Cidade')}" name="cidade" />
+          </div>
+
+          <div class="mb-4 ml-20">
+            <input class="form-control" placeholder="Estado" formControlName="Estado"
+              [ngClass]="{'is-invalid':submmited && hasError('Estado')}" name="estado" />
+          </div>
+        </div>
+        <hr />
+        <div class="grid-col-2">
+          <div class="mb-4">
+            <input class="form-control" type="password" placeholder="Senha" formControlName="Senha"
+              [ngClass]="{'is-invalid':submmited && hasError('Senha')}" name="Senha" />
+          </div>
+
+          <div class="mb-4 ml-20">
+            <input class="form-control" type="password" placeholder="Confirma senha" formControlName="ConfirmaSenha"
+              [ngClass]="{'is-invalid':submmited && hasError('ConfirmaSenha')}" name="ConfirmaSenha" />
+          </div>
+        </div>
+        <div class="buttons-container center frase-btn">
+          <span class="mb-4">Você é:</span>
+          <div class="text-center">
+            <button type="submit" class="btn btn-paciente btn-lg" (click)="onSubmitPaciente()">Paciente</button>
+            <button type="submit" class="btn btn-medico btn-lg ml-20" (click)="onSubmitMedico()">Medico</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

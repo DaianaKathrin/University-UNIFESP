@@ -1,0 +1,40 @@
+<div class="background-container">
+  <div class="mt-4 mb-4 form-container">
+    <div class="header-container">
+      <div class="title-container mt-5">
+        <span class="title-1">Seja bem-vindo, médico(a)!</span>
+        <span class="title-2">Agora vamos precisar dos seus dados profissionais</span>
+      </div>
+      <img
+        src="assets/img/logo.png"
+        alt="Imagem da logo"
+        class="logo-img"
+        [routerLink]="['/home']"
+      />
+    </div>
+
+    <div class="main-container mt-80 center">
+      <div class="col-md-7 mb-4">
+        <input type="text"
+         class="form-control"
+         id="crm"
+         [(ngModel)]="CRM"  
+         placeholder="CRM">
+       </div>
+
+       <ng-select
+          class="input-especialidade mt-40"
+          [items]="especialidades"
+          bindLabel="Nome"
+          placeholder="Selecione sua especialidade"
+          appendTo="body"
+          [multiple]="true"
+          [(ngModel)]="especialidadeSelecionada"
+        >
+      </ng-select>
+
+      <div class="text-center mt-80">
+        <button  class="btn btn-confirmar btn-lg " type="submit" (click)="confirmaCadastro()" >Confirmar Cadastro</button>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="wrapper">
+  <div class="template-background">
+    <app-background
+      [ehMedico]="true"
+      [nomeUsuario]="medico?.Nome"
+    ></app-background>
+  </div>
+  <div>
+    <app-sidemenu-medico [opcao]="4"></app-sidemenu-medico>
+  </div>
+  <div class="main-container">
+    <mat-card *ngIf="consultasFiltradas.length === 0" class="card-model">
+      <mat-card-title class="card-header-model">
+        NÃO OCORRERAM CONSULTAS AINDA
+      </mat-card-title>
+    </mat-card>
+
+    <div *ngIf="consultasFiltradas.length > 0">
+      <h2 class="header_text">HISTÓRICO DE CONSULTAS</h2>
+      <div class="table-container">
+        <table mat-table [dataSource]="consultasFiltradas" class="table-model">
+          <ng-container matColumnDef="paciente">
+            <th mat-header-cell *matHeaderCellDef>NOME</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.pacientes.Nome }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="especialidade">
+            <th mat-header-cell *matHeaderCellDef>ESPECIALIDADE</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.especialidades.Nome }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="data">
+            <th mat-header-cell *matHeaderCellDef>DATA</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.horarios.Data | date: "dd/MM/YYYY" }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="horario">
+            <th mat-header-cell *matHeaderCellDef>HORÁRIO</th>
+            <td mat-cell *matCellDef="let element">
+              {{
+                element.horarios.Horario_Inicio.substring(0, 5) +
+                  " - " +
+                  element.horarios.Horario_Fim.substring(0, 5)
+              }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acoes">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+              <button
+                (click)="verReceita(element.Paciente_ID)"
+                class="card-cancelar-button"
+                mat-icon-button
+              >
+                Ver Receita
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

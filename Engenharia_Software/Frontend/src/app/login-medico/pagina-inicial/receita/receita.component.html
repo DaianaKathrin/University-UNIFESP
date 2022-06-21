@@ -1,0 +1,12 @@
+<form>
+    <div class="text-center">
+    <input type="file"
+        id="file"
+        (change)="selecionaArquivo($event)">
+    <hr/>
+      <button (click)="fazerUpload()" 
+          class="btn btn-success" mat-dialog-close>
+          Upload
+      </button>
+    </div>
+  </form>

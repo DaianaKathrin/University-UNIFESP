@@ -1,0 +1,45 @@
+@import '../../styles/main';
+
+able-container {
+    max-height: 15em;
+    overflow: auto;
+    border: 1px solid #000000;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+  }
+  
+  .table-model {
+    width: 100%;
+    background: #f9f9f9;
+  }
+
+.main-content {
+  background-color: #ffff;
+  border-radius: 0px 40px 0px 5px;
+  width: 100%;
+  padding: 3vh 5vh 0vh 5vh;
+
+}
+
+.header_text{
+  font-family: K2D;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  color: #F58426;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #F58426;
+  margin-top: 10PX;
+}
+
+
+.cadastrar-button{
+    color: white;
+    width: 180px;
+    background: #F58426;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;  
+}

@@ -1,0 +1,87 @@
+<div class="wrapper">
+  <div class="template-background">
+    <app-background [ehMedico]="true" [nomeUsuario]="medico?.Nome"></app-background>
+  </div>
+  <div>
+    <app-sidemenu-medico [opcao]="2"></app-sidemenu-medico>
+  </div>
+  <div class="main-container">
+    <form class="form form-horizontal form-group center needs-validation" [formGroup]="form">
+      <h3 class="header_text">CADASTRAR NOVA ESPECIALIDADE</h3>
+      <div class="row">
+
+        <div class="col-md-6 ">
+          <mat-form-field>
+            <mat-label>Especialidade</mat-label>
+            <!-- <input matInput id="Especialidade" formControlName="Especialidade"> -->
+            <mat-select (selectionChange)="selecionaEspecialidade($event.value)" formControlName="Especialidade">
+              <mat-option *ngFor="let especialidade of especialidades" [value]="especialidade.Especialidade_ID">
+                {{especialidade.Nome}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6 ">
+          <mat-form-field>
+            <mat-label>Url Anamnese</mat-label>
+            <input matInput type="url" id="Anamnese" name="Anamnese" class="form-control" placeholder="Url Anamnese"
+              formControlName="Anamnese" [ngClass]="{'is-invalid':submmited && hasError('anamnese')}">
+          </mat-form-field>
+        </div>
+        <div class="text-center">
+          <div class="center">
+          <button type="submit" class="btn cadastrar-button btn-lg ml-20" (click)="AdicionaAnamnese()">
+            Cadastrar
+          </button>
+          </div>
+        </div>
+
+      </div>
+
+
+    </form>
+
+
+    <mat-card *ngIf="Especialidades.length === 0" class="card-model">
+      <mat-card-title class="card-header-model">
+        NÃO HÁ ESPECIALIDADES CADASTRADAS
+      </mat-card-title>
+    </mat-card>
+
+    <div class="mt-4 mb-4" *ngIf="Especialidades.length > 0">
+      <h2 class="header_text"> ESPECIALIDADES </h2>
+      <div class="table-container">
+        <table mat-table [dataSource]="Especialidades" class="table-model">
+
+          <ng-container matColumnDef="especialidade">
+            <th mat-header-cell *matHeaderCellDef> ESPECIALIDADE </th>
+            <td mat-cell *matCellDef="let element"> {{element.especialidades.Nome}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="anamnese">
+            <th mat-header-cell *matHeaderCellDef> ANAMNESE </th>
+            <td mat-cell *matCellDef="let element"> <button mat-icon-button color="black"
+              (click)="entrarAnamnese(element.ModeloAnamnese)">
+              <mat-icon>launch</mat-icon>
+            </button></td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef>EXCLUIR</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button color="warn"
+                (click)="deletaEspecialidade(element.MedicoEspecialidade_ID)">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
