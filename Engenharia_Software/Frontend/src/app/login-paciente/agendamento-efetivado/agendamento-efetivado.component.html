@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <div class="template-background">
+    <app-background [ehMedico]="true" [nomeUsuario]="paciente?.Nome"></app-background>
+  </div>
+  <div>
+    <app-sidemenu-medico [opcao]="1"></app-sidemenu-medico>
+  </div>
+  <div class="main-container">
+    <div class="content">
+      <div class="text-center">
+        <mat-card>
+          <mat-card-title>Consulta agendada com sucesso. Clique no link abaixo para preencher a ananmese.
+          </mat-card-title>
+          <h3>Ananmese: {{medicoEspecialidade?.ModeloAnamnese}}</h3>
+          <button mat-raised-button color="primary" (click) = "voltar()">Voltar</button>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

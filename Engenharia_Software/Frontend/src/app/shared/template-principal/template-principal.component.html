@@ -1,0 +1,56 @@
+
+<div class="full-page">
+  <div class="header-background">
+    <div class="header-content">
+      <img
+      src="assets/img/logo.png"
+      alt="Imagem da logo"
+      class=""
+      [routerLink]="['/']"/>
+
+      <div class="title">
+        <span>HAWK MEDICAL</span>
+      </div>
+
+      <div class="user">
+        <img
+          src="assets/img/user.svg"
+          alt="Imagem user"
+          class="user"/>
+
+        <div class="container-texto">
+          <span class="nome-usuario">Fulano</span>
+          <span class="logout" [routerLink]="['/home']">Sair</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-page">
+    <div class="main-section">
+      <div class="side-bar center">
+        <button mat-button class="menu-button-pressed">
+            <mat-icon>home</mat-icon>
+            <span>SUAS CONSULTAS</span>
+        </button>
+        <button mat-button class="menu-button">
+            <span>MARCAR CONSULTA</span>
+        </button>
+        <button mat-button class="menu-button">
+          <span>HISTÓRICO</span>
+        </button>
+        <button mat-button class="menu-button">
+            <span>EXAMES/RECEITAS</span>
+        </button>
+      </div>
+
+      <div class="main-content">
+        <h2 class="header_text"> SUA PRÓXIMA CONSULTA </h2>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

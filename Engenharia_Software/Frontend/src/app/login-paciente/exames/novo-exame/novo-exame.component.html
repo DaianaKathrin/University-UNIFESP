@@ -1,0 +1,31 @@
+<div class="text-center">
+<h2 class="header_text">ADICIONAR EXAME</h2>
+</div>
+<form [formGroup]="form">
+ 
+    <mat-form-field class="example-full-width" >
+      <mat-label>Informe uma descrição para o arquivo</mat-label>
+      <input matInput placeholder="Descrição"  formControlName="descricao">
+    </mat-form-field>
+    
+    <mat-form-field class= "tipo-exame">
+      <mat-label>Tipo de exame</mat-label>
+      <mat-select formControlName="categoria">
+        <mat-option *ngFor="let categoria of categorias" [value]="categoria.CategoriaExame_ID" >
+          {{categoria.Nome}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <input class="form-control button" type="file" formControlName="file"
+            (change)="selecionaArquivo($event)">
+          
+  <hr/>
+  <div class="text-center">
+    <button (click)="fazerUpload()" 
+        class="btn btn-success upload-maior" mat-dialog-close>
+        Upload
+    </button>
+  </div>
+  
+</form>

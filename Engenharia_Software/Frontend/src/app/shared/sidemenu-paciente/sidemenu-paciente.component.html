@@ -1,0 +1,32 @@
+<div class="side-bar side-menu">
+  <button *ngIf="opcao === 0" [routerLink]="['/paciente']" mat-button class="menu-button-pressed">
+    <mat-icon>home</mat-icon>
+    <span >SUAS CONSULTAS</span>
+  </button>
+  <button *ngIf="opcao !== 0" [routerLink]="['/paciente']" mat-button class="menu-button">
+    <mat-icon>home</mat-icon>
+    <span >SUAS CONSULTAS</span>
+  </button>
+
+  <button *ngIf="opcao === 1" [routerLink]="['/paciente/marcar-consulta']" mat-button class="menu-button-pressed">
+    <span>MARCAR CONSULTA</span>
+  </button>
+  <button *ngIf="opcao !== 1" [routerLink]="['/paciente/marcar-consulta']" mat-button class="menu-button">
+    <span>MARCAR CONSULTA</span>
+  </button>
+
+  <button *ngIf="opcao === 2" [routerLink]="['/paciente/historico']" mat-button class="menu-button-pressed">
+    <span>HISTÓRICO</span>
+  </button>
+  <button *ngIf="opcao !== 2" [routerLink]="['/paciente/historico']" mat-button class="menu-button">
+    <span>HISTÓRICO</span>
+  </button>
+
+  <button *ngIf="opcao === 3" [routerLink]="['/paciente/exames']" mat-button class="menu-button-pressed">
+    <span>EXAMES/RECEITAS</span>
+  </button>
+  <button *ngIf="opcao !== 3" [routerLink]="['/paciente/exames']" mat-button class="menu-button">
+
+    <span>EXAMES/RECEITAS</span>
+  </button>
+</div>

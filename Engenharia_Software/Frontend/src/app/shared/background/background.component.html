@@ -1,0 +1,40 @@
+<div class="full-page">
+  <div class="header-background">
+    <div class="header-content">
+      <div *ngIf="ehMedico">
+        <img
+        src="assets/img/logo.png"
+        alt="Imagem da logo"
+        class="imagem-logo"
+        [routerLink]="['/loginmedico']"/>
+      </div>
+
+      <div *ngIf="!ehMedico">
+        <img
+        src="assets/img/logo.png"
+        alt="Imagem da logo"
+        class="imagem-logo"
+        [routerLink]="['/paciente']"/>
+      </div>
+
+      <div class="title">
+        <span>HAWK MEDICAL</span>
+      </div>
+
+      <div class="user">
+        <img
+          src="assets/img/user.svg"
+          alt="Imagem user"
+          class="user"/>
+
+        <div class="container-texto">
+          <span class="nome-usuario">{{ nomeUsuario }}</span>
+          <span class="logout" [routerLink]="['/home']">Sair</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-page">
+
+  </div>
+</div>

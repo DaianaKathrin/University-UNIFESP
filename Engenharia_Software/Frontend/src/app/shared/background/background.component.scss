@@ -1,0 +1,59 @@
+@import '../../styles/main';
+
+.header-background {
+  background-color: $cor-azul-escuro;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 120px;
+}
+
+.header-content {
+align-items: center;
+}
+
+.user {
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+.title {
+  color: $cor-branco;
+  font-family: "Inder", sans-serif;
+  font-size: 44px;
+}
+
+.container-texto {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  color: $cor-branco;
+  font-family: "Inder", sans-serif;
+}
+
+.logout {
+  padding-left: 5px;
+  color: $cor-vermelho;
+  cursor: pointer;
+}
+
+.header-content {
+padding-left: 5%;
+padding-right: 5%;
+display: flex;
+justify-content: space-between;
+}
+
+.main-page {
+  background-color: $cor-azul-branco;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 80vh;
+  width: 80vh;
+  width: auto;
+}
+
+.imagem-logo {
+  cursor: pointer;
+}

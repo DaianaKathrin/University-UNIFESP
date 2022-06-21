@@ -1,0 +1,20 @@
+
+<div>
+    <h2 class="header_text">ASSOCIAR EXAMES</h2>
+
+    <ng-select
+            class="input-especialidade"
+            [items]="exames"
+            bindLabel="Descricao"
+            placeholder="Selecione os exames para associar á consulta"
+            appendTo="body"
+            [multiple]="true"
+            [(ngModel)]="exameSelecionado"
+            >
+    </ng-select>
+
+    <button mat-button class="card-confirmar-button" (click)="associateExam()"> CONFIRMAR </button>
+    <button mat-button class="card-cancelar-button"  (click)="cancel()"> CANCELAR </button>
+
+</div>
+

@@ -1,0 +1,36 @@
+
+
+<h2 class="header_text">RECEITAS DESTE EXAME</h2>
+<div *ngIf="receitas.length > 0">
+    
+    
+    <div class="table-container">
+       <table mat-table [dataSource]="receitas" class="table-model">
+       
+           <ng-container matColumnDef="nomeArquivo">
+               <th mat-header-cell *matHeaderCellDef> NOME DO ARQUIVO </th>
+               <td mat-cell *matCellDef="let element"> {{element.Nome_Arquivo}} </td>
+               </ng-container>
+
+               <ng-container matColumnDef="arquivo">
+               <th mat-header-cell *matHeaderCellDef> DOWNLOAD </th>
+               <td mat-cell *matCellDef="let element"> 
+                   <button mat-icon-button (click)="baixaArquivo(element.Receita_ID)"><mat-icon>play_for_work</mat-icon></button>
+               </td>
+               </ng-container>
+       
+           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+       </table>
+    </div>
+</div>
+
+<div *ngIf="receitas.length <= 0">
+
+    <p>Não há receitas anexadas</p> 
+
+</div>
+
+<div>
+    <button mat-button class="card-cancelar-button"  (click)="cancel()"> FECHAR </button>
+</div>

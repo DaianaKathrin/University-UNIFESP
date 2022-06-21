@@ -1,0 +1,33 @@
+.input-especialidade {
+    width: auto;
+    color: #3F474B;
+    margin-bottom: 15PX;
+  }
+
+  .header_text{
+    font-family: K2D;
+    font-style: normal;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    color: #2A576F;
+    border-bottom: 1px solid #2A576F;
+  }
+  
+  .card-confirmar-button{
+    width: 120px;
+    margin-left: 10px;
+    text-align: center;
+    float: right;
+    color: white;
+    background: #2A576F;
+    border: 1px solid black !important;
+  }
+  
+  .card-cancelar-button{
+    width: 120px;
+    text-align: center;
+    float: right;
+    border: 1px solid black !important;
+  }

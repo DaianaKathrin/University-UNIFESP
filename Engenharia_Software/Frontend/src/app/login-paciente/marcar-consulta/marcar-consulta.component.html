@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <div class="template-background">
+    <app-background [ehMedico]="false" [nomeUsuario]="paciente?.Nome.split(' ')[0]"></app-background>
+  </div>
+  <div>
+    <app-sidemenu-paciente [opcao]="1"></app-sidemenu-paciente>
+  </div>
+  <div class="main-container">
+    <br>
+      <div class="text-center">
+        <mat-card >
+          <mat-card-title class="header_text_confirm">Confira as informações abaixo para efetivar seu agentamento</mat-card-title>
+          <br>
+
+          <h3><strong>Médico:</strong>{{medico?.Nome}}</h3>
+          <h3><strong>CRM: </strong>{{medico?.CRM}}</h3>
+          <h3><strong>Especialidade: </strong>{{especialidade?.Nome}}</h3>
+          <h3><strong>Descrição: </strong> {{medico?.Descricao}}</h3>
+          <h3><strong>Data selecionada: </strong>{{horario?.Data}}</h3>
+          <h3><strong>Horario selecionado: </strong>{{horario?.Horario_Inicio}}</h3>
+          <button mat-raised-button color="primary" (click)="EfetivarAgendamento()">Efetuar agendamento</button>
+        </mat-card>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="wrapper">
+  <div class="template-background">
+    <app-background [ehMedico]="false" [nomeUsuario]="paciente_name.split(' ')[0]"></app-background>
+  </div>
+  <div>
+    <app-sidemenu-paciente [opcao]="3"></app-sidemenu-paciente>
+  </div>
+  <div class="main-container">
+    <h2 class="header_text"> EXAMES </h2>
+    <div align="right"> 
+      <button mat-button (click)="onCreate()" class='novo-exame-button'><mat-icon>add_circle_outline</mat-icon> Novo arquivo</button>
+    </div>
+    
+    <div class="table-container">    
+      <table mat-table [dataSource]="exames" class="table-model">
+        
+        <ng-container matColumnDef="download">
+          <th mat-header-cell *matHeaderCellDef>  </th>
+          <td mat-cell *matCellDef="let element"> 
+            <button mat-icon-button (click) = "ExameDowload(element.Exame_ID)"><mat-icon>play_for_work</mat-icon></button>
+          </td>
+        </ng-container> 
+
+        <ng-container matColumnDef="filename">
+          <th mat-header-cell *matHeaderCellDef> NOME DO ARQUIVO </th>
+          <td mat-cell *matCellDef="let element"> {{element.Nome_Arquivo}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef> DESCRIÇÃO </th>
+          <td mat-cell *matCellDef="let element"> {{element.Descricao}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="created_at">
+          <th mat-header-cell *matHeaderCellDef> DATA DE CRIAÇÃO </th>
+          <td mat-cell *matCellDef="let element"> {{element.Data | date:'dd/MM/YYYY hh:mm' }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> AÇÕES </th>
+          <td mat-cell *matCellDef="let element"> 
+            <button mat-icon-button color="warn" (click)="deleteMethod(element.Exame_ID)"><mat-icon>delete_outline</mat-icon></button>
+          </td>
+        </ng-container> 
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
+      </table>
+    </div>
+
+    <h2 class="header_text"> RECEITAS </h2>
+    
+    <div class="table-container">    
+      <table mat-table [dataSource]="receitas" class="table-model">
+        
+        <ng-container matColumnDef="download">
+          <th mat-header-cell *matHeaderCellDef>  </th>
+          <td mat-cell *matCellDef="let element"> 
+            <button mat-icon-button (click) = "ReceitaDowload(element.Receita_ID)"><mat-icon>play_for_work</mat-icon></button>
+          </td>
+        </ng-container> 
+
+        <ng-container matColumnDef="filename">
+          <th mat-header-cell *matHeaderCellDef> NOME DO ARQUIVO </th>
+          <td mat-cell *matCellDef="let element"> {{element.Nome_Arquivo}} </td>
+        </ng-container>
+      
+
+        <ng-container matColumnDef="created_at">
+          <th mat-header-cell *matHeaderCellDef> DATA DE CRIAÇÃO </th>
+          <td mat-cell *matCellDef="let element"> {{element.Data | date:'dd/MM/YYYY hh:mm' }} </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns1; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns1; "></tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="side-bar side-menu">
+  <button *ngIf="opcao === 0" [routerLink]="['/loginmedico/paginainicial']" mat-button class="menu-button-pressed">
+    <mat-icon>home</mat-icon>
+    <span >PAGINA INICIAL</span>
+  </button>
+  <button *ngIf="opcao !== 0" [routerLink]="['/loginmedico/paginainicial']" mat-button class="menu-button">
+    <mat-icon>home</mat-icon>
+    <span >PAGINA INICIAL</span>
+  </button>
+
+  <button *ngIf="opcao === 1" [routerLink]="['/loginmedico/horarios']" mat-button class="menu-button-pressed">
+    <span>HORÁRIOS</span>
+  </button>
+  <button *ngIf="opcao !== 1" [routerLink]="['/loginmedico/horarios']" mat-button class="menu-button">
+    <span>HORÁRIOS</span>
+  </button>
+
+  <button *ngIf="opcao === 2" [routerLink]="['/loginmedico/Especialidades']" mat-button class="menu-button-pressed">
+    <span>ESPECIALIDADES</span>
+  </button>
+  <button *ngIf="opcao !== 2" [routerLink]="['/loginmedico/Especialidades']" mat-button class="menu-button">
+    <span>ESPECIALIDADES</span>
+  </button> 
+
+  <button *ngIf="opcao === 3" [routerLink]="['/loginmedico/historico-consulta']" mat-button class="menu-button-pressed">
+    <span>HISTÓRICO DE CONSULTAS</span>
+  </button>
+  <button *ngIf="opcao !== 3" [routerLink]="['/loginmedico/historico-consulta']" mat-button class="menu-button">
+    <span>HISTÓRICO DE CONSULTAS</span>
+  </button>
+
+</div>

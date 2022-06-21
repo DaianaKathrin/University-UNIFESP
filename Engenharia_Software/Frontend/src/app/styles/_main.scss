@@ -1,0 +1,144 @@
+$cor-rosa: #E20059;
+$cor-laranja: #F58426;
+$cor-azul-branco: #D1EDFB;
+$cor-azul-escuro: #2A576F;
+$cor-azul-claro: #ACD4DF;
+$cor-azul-turquesa: #0D8793;
+$cor-cinza: #66766F;
+$cor-branco: #FFFFFF;
+$cor-cinza-escuro: #373D3A;
+$cor-cinza-claro: #6A7671;
+$cor-preto: black;
+$cor-vermelho: #e03a3e;
+
+
+.wrapper {
+  position: relative;
+}
+
+.template-background {
+  position: relative;
+  z-index: 1;
+  height: 8em;
+
+}
+.main-container {
+  position: absolute;
+  z-index: 3;
+  left: 22.5%;
+  background-color: white;
+  border-radius: 0px 40px 0px 5px;
+  width: 72.5%;
+  height: 78vh;
+  padding: 3vh 5vh 0vh 5vh;
+  margin-top: 24px;
+  margin-right: 60px;
+
+  .content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.side-menu {
+  position: absolute;
+  z-index: 3;
+  left: 5%;
+  width: 17.5%;
+  height: 77.5vh;
+  padding: 3vh 5vh 0vh 5vh;
+  margin-top: 24px;
+  background-color: $cor-azul-turquesa;
+  border-radius: 5px 0px 0px 5px;
+  padding-left: 0;
+}
+
+.main-page {
+  background-color: $cor-azul-branco;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 84vh !important;
+  width: auto;
+}
+
+.main-section {
+  padding-top: 16px;
+  min-height: 80vh;
+  height: 100%;
+  width: 90%;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  border-radius: 45px;
+}
+
+.side-bar {
+  width: 40vh;
+  border-radius: 5px 0px 0px 5px;
+  background-color: #0d8793;
+  justify-content: left;
+  align-items: flex-start;
+  padding-top: 30px;
+}
+
+.main-content {
+  background-color: $cor-branco;
+  border-radius: 0px 40px 0px 5px;
+  width: 100%;
+  padding: 3vh 5vh 0vh 5vh;
+  overflow: auto;
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  color: white;
+  font-family: K2D;
+  font-style: normal;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+
+  mat-icon {
+    margin-right: 10px;
+  }
+}
+
+.menu-button-pressed {
+  width: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  color: black;
+  background-color: #2a576f;
+  font-family: K2D;
+  font-style: normal;
+  font-weight: bold;
+  background: #FFFFFF;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+
+  mat-icon {
+    margin-right: 10px;
+  }
+}
+
+.card-model {
+  margin-top: 25px;
+  background: #F9F9F9;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px; 
+  height: 150PX;
+}
+

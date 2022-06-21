@@ -1,0 +1,130 @@
+<div class="wrapper">
+  <div class="template-background">
+    <app-background
+      [ehMedico]="false"
+      [nomeUsuario]="paciente?.Nome.split(' ')[0]"
+    ></app-background>
+  </div>
+  <div>
+    <app-sidemenu-paciente [opcao]="0"></app-sidemenu-paciente>
+  </div>
+  <div class="main-container">
+    <h2 class="header_text">SUA PRÓXIMA CONSULTA</h2>
+    <mat-card *ngIf="prox_consulta" class="card-model">
+      <mat-card-title class="card-header-model">
+        {{ this.prox_consulta?.especialidades.Nome.toUpperCase() }}
+      </mat-card-title>
+
+      <mat-card-subtitle class="card-text-model">
+        Doutor: {{ this.prox_consulta?.medicos.Nome }} <br />
+        Data: {{ this.prox_consulta?.horarios.Data | date: "dd/MM/YYYY" }}
+        <br />
+        Horário:
+        {{ this.prox_consulta?.horarios.Horario_Inicio.substring(0, 5) }} -
+        {{ this.prox_consulta?.horarios.Horario_Fim.substring(0, 5) }} <br />
+        Status:
+        <span
+          [ngStyle]="{ color: getColorStatus(this.prox_consulta?.Status) }"
+          >{{ checkStatus(this.prox_consulta?.Status) }}</span
+        >
+      </mat-card-subtitle>
+
+      <mat-card-actions align="end">
+        <button 
+              mat-icon-button
+              (click)="newExam(prox_consulta.Consulta_ID)"><mat-icon>upgrade</mat-icon>
+        </button>
+        
+        
+
+        <button
+          mat-button
+          [ngStyle]="{ background: getColorStatus(this.prox_consulta?.Status) }"
+          (click)="
+            entrarSessao(
+              this.prox_consulta.Consulta_ID,
+              this.prox_consulta?.Status
+            )
+          "
+          class="card-entrar-button"
+        >
+          ENTRAR
+        </button>
+        <button
+          mat-button
+          (click)="cancelarConsulta(this.prox_consulta.Consulta_ID)"
+          class="card-cancelar-button"
+        >
+          CANCELAR
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card *ngIf="!prox_consulta && this.paciente" class="card-model">
+      <mat-card-title class="card-header-model">
+        NÃO HÁ CONSULTAS MARCADAS
+      </mat-card-title>
+
+      <mat-card-subtitle class="card-text-model">
+        Agende sua próxima consulta na sessão <strong>MARCAR CONSULTA</strong>.
+      </mat-card-subtitle>
+    </mat-card>
+
+    <BR />
+
+    <h2 *ngIf="consultas.length > 0" class="header_text">PRÓXIMAS CONSULTAS</h2>
+
+    <div *ngIf="consultas.length > 0" class="table-container">
+      <table mat-table [dataSource]="consultas" class="table-model">
+        <ng-container matColumnDef="data">
+          <th mat-header-cell *matHeaderCellDef>DATA</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.horarios.Data | date: "dd/MM/YYYY" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="horario">
+          <th mat-header-cell *matHeaderCellDef>HORÁRIO</th>
+          <td mat-cell *matCellDef="let element">
+            {{
+              element.horarios.Horario_Inicio.substring(0, 5) +
+                " - " +
+                element.horarios.Horario_Fim.substring(0, 5)
+            }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="especialidade">
+          <th mat-header-cell *matHeaderCellDef>ESPECIALIDADE</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.especialidades.Nome }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="medico">
+          <th mat-header-cell *matHeaderCellDef>MÉDICO</th>
+          <td mat-cell *matCellDef="let element">{{ element.medicos.Nome }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="acoes">
+          <th mat-header-cell *matHeaderCellDef>AÇÕES</th>
+          <td mat-cell *matCellDef="let element">
+            <button 
+              mat-icon-button
+              (click)="newExam(element.Consulta_ID)"><mat-icon>upgrade</mat-icon></button>
+            <button
+              mat-icon-button
+              color="warn"
+              (click)="cancelarConsulta(element.Consulta_ID)"
+            >
+              <mat-icon>highlight_off</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+</div>
